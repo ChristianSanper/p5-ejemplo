@@ -1,35 +1,55 @@
-let w = 400;
-let h= 600;
-
-function setup(){
-    createCanvas(windowWidth,windowHeight);
-    //createCanvas(w,h);
-    //createCanvas(400,400);
-    background("yellow");
+function setup() {
+createCanvas(400, 400);
+noStroke();
+background('black')
 }
 
-function draw(){
-    // noStroke;
-    background("yellow");
-    strokeWeight(50);
-    stroke("orange")
-   fill("red")
-    ellipse(width/2,height/2,100);
-    ellipse(mouseX,mouseY,100);
-    ellipse(mouseX+200,mouseY,100);
-    //stroke("blue");
-    stroke(20,mouseX,mouseY);
-    strokeWeight(1);
-    noFill();
-    triangle(mouseX,mouseY,300,300,100,300);
-    
-    fill("grey");
+function draw() {
+  let boca_w= width/1.75;
+  noStroke();
+  
+  push();
+    translate(width/2,height/2);
     rectMode(CENTER);
-    rect(100,200,200,200);
-    //map(mouseX,0,width,0, 250);
-}
-
-//responsive
-function windowResized(){
-    resizeCanvas(windowWidth,windowHeight);
+    
+  
+    //fondo boca
+    fill('red');
+    rect(0,100,boca_w,200);
+  
+    //lengua
+    fill(255,204,0);
+    rect(0,150,boca_w,100,10);
+  
+    //dientes
+    fill(255);
+    rect(0,20,boca_w,50,10);
+  
+    //barba
+    fill(0,0,255);
+    rect(0,180,boca_w,100);
+  
+  pop();
+  
+  //frente
+  fill(0,0,255);
+  rect(0,0,width,height/1.8);
+  
+  //ojo izq
+  fill(255);
+  ellipse(width*0.25,height/2.5,40);
+  fill('blue');
+  ellipse(width*0.25,height/2.5,10);
+  
+  //ojo der
+  fill(255);
+  ellipse(width*0.75,height/2.5,40);
+  fill('blue');
+  ellipse(width*0.75,height/2.5,10);
+  
+  //nariz
+  noFill();
+  stroke(255);
+  strokeWeight(10);
+  arc(width*0.5,height/1.85,60,60,radians(230),radians(310));
 }
